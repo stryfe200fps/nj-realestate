@@ -1,7 +1,14 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
 
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+
 import { ref  } from 'vue';
+
+const modules = [Navigation]
 
 const active = ref(false);
 
@@ -32,7 +39,7 @@ defineProps({
         </svg>
       </button>
     </div>
-    <nav  :class="active ? 'flex' : 'hidden'"  class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+    <nav  :class="active ? 'flex' : 'hidden'"  class="flex-col flex-grow pb-4 md:pb-0  md:flex md:justify-end md:flex-row">
       <a class="px-2 py-2 mt-2 text-md font-medium  hover:text-primary     md:mt-0   " href="#">HOME</a>
       <a class="px-2 py-2 mt-2 text-md font-medium  hover:text-primary  md:mt-0 md:ml-4    " href="#">PORTFOLIO</a>
       <a class="px-2 py-2 mt-2 text-md font-medium   hover:text-primary md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">ABOUT</a>
@@ -42,7 +49,7 @@ defineProps({
           <span class="text-md font-medium ">DROPDOWN</span>
           <svg fill="currentColor" viewBox="0 0 20 20" :class="active ? 'rotate-180' : 'rotate-0'" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </button>
-        <div v-if="active" @mouseover="active = true" @mouseleave="active = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute w-full mt-7 origin-top-right rounded-md shadow-lg md:w-48">
+        <div v-if="active" @mouseover="active = true" @mouseleave="active = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute w-full mt-7 origin-top-right rounded-md shadow-lg md:w-48 z-50">
           <div class=" bg-white rounded-b-md shadow dark-mode:bg-gray-800">
             <a class="block px-4 py-2 mt-2 hover:bg-primary hover:text-white text-sm font-semibold  md:mt-0 " href="#">Link #1</a>
             <a class="block px-4 py-2 mt-2 hover:bg-primary hover:text-white text-sm font-semibold  md:mt-0 " href="#">Link #2</a>
@@ -54,8 +61,23 @@ defineProps({
   </div>
 </div>
 
+<div>
+
+    <swiper :navigation="true" :modules="modules" class="mySwiper">
+    <swiper-slide>
+        <img src="https://njrealestateschoolonline.com/images/slider/slider-2.jpg"/>
+    </swiper-slide>
+    
+    <swiper-slide>
+        <img src="https://njrealestateschoolonline.com/images/slider/slider-1.jpg"/>
+        </swiper-slide>
+  </swiper>
+
+</div>
+
 
 <div class="container mx-auto">
+
 
     <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure deserunt sed repellat. Sapiente magnam molestias fugiat esse laudantium eius dolorem atque aperiam rerum architecto! Officia et at aliquam voluptates ducimus!
@@ -88,7 +110,6 @@ defineProps({
             <div>
 
                 contact form
-
             </div>
 
         </div>
@@ -143,5 +164,47 @@ nav > a:after {
 nav > a:hover:after {
  transform: scaleX(1);
 }
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-prev{
+    color:#b40101;
+}
+
+.swiper-button-next{
+    color:#b40101;
+}
+
 
 </style>
