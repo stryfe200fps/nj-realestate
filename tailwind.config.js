@@ -1,3 +1,4 @@
+const { reduce } = require('lodash');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
@@ -15,7 +16,14 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'primary': '#b40101',
+                'nav': '#b40101',
+            }
+
+
         },
+           
     },
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
