@@ -1,6 +1,7 @@
 const { reduce } = require('lodash');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
@@ -14,12 +15,27 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-            },
+                poppins: ['Poppins', 'sans-serif'],
+              },
             colors: {
                 'primary': '#b40101',
-                'nav': '#b40101',
-            }
+                'nav': '#ededed',
+                'primary-hover': '#992A1C',
+                'footer' : '#898989'
+            },
+              container: {
+      // you can configure the container to be centered
+        center: true,
+        padding: '1rem',
+      screens: {
+        sm: '600px',
+        md: '728px',
+        lg: '984px',
+        xl: '1000px',
+        '2xl': '1200px',
+      },
+    },
+
 
 
         },
