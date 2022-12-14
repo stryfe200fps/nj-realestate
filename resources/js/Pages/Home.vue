@@ -3,6 +3,7 @@ import { Head, Link } from '@inertiajs/inertia-vue3';
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, EffectFade } from "swiper";
+
 import "swiper/css/effect-fade";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,6 +13,8 @@ import { ref  } from 'vue';
 const modules = [Navigation, EffectFade]
 
 const active = ref(false);
+const contact = ref(false);
+
 
 defineProps({
     canLogin: Boolean,
@@ -27,38 +30,43 @@ defineProps({
  <div class="h-16 bg-primary">
   </div>
  
-<div @mouseleave="active = false"  class="w-full  bg-nav dark-mode:text-gray-200 dark-mode:bg-gray-800 shadow-md z-50">
-  <div class="flex flex-col py-4 container mx-auto md:items-center md:justify-between md:flex-row ">
+<div   class="w-full  bg-nav dark-mode:text-gray-200  dark-mode:bg-gray-800 shadow-md z-50">
+  <div class="flex flex-col py-4 container mx-auto  lg:items-center lg:justify-between lg:flex-row ">
     <div class="p-4 flex flex-row items-center justify-between">
       <a href="#"> <img src="https://njrealestateschoolonline.com/images/logo.png" class="w-52" />
     </a>
 
-      <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="active = !active">
+      <button class="lg:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="active = !active">
         <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
           <path v-if="!active" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
           <path v-if="active" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
         </svg>
       </button>
     </div>
-    <nav  :class="active ? 'flex' : 'hidden'"  class="flex-col flex-grow pb-4 md:pb-0  md:flex md:justify-end md:flex-row uppercase">
-      <a class="px-1 py-2 mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Home</a>
-      <a class="px-1 py-2 mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Courses</a>
-      <a class="px-1 py-2 mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Schedule</a>
-      <a class="px-1 py-2 mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">School Policies</a>
-      <div  @mouseover="active = true" class="relative " >
-        <button  class="text-md font-medium flex flex-row text-primary hover:text-black items-center w-full px-1 py-2 mt-2 text-left  rounded-lg  md:w-auto md:inline md:mt-0 md:ml-4">
+    <nav  :class="active ? 'flex' : 'hidden'"  class=" flex-col flex-grow pb-4 md:pb-0  lg:flex lg:justify-end lg:flex-row uppercase">
+      <a class="px-1 py-2 mt-2 lg:text-sm text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4   focus:outline-none focus:shadow-outline" href="#">Home</a>
+      <a class="px-1 py-2 mt-2 lg:text-sm text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Courses</a>
+      <a class="px-1 py-2 mt-2 lg:text-sm text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Schedule</a>
+      <a class="px-1 py-2 mt-2  lg:text-sm text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">School Policies</a>
+      <div   @click="contact = !contact"  class="relative " >
+        <button  class=" lg:text-sm text-md font-medium flex flex-row text-primary hover:text-black items-center w-full px-1 py-2 mt-2 text-left  rounded-lg  md:w-auto md:inline md:mt-0 md:ml-4">
           <span class="uppercase">Contact</span>
-          <svg fill="currentColor" viewBox="0 0 20 20" :class="active ? 'rotate-180' : 'rotate-0'" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          <svg fill="currentColor" viewBox="0 0 20 20" :class="contact ? 'rotate-180' : 'rotate-0'" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </button>
-        <div v-if="active" @mouseover="active = true" @mouseleave="active = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute w-full mt-8 origin-top-right rounded-md shadow-lg md:w-48 z-50">
-          <div class=" bg-white rounded-b-md shadow dark-mode:bg-gray-800">
-            <a class="block px-4 py-2 mt-2 hover:bg-primary hover:text-white text-sm font-semibold  md:mt-0 " href="#">Our Team</a>
+      <Transition name="slide"
+      >
+        <div v-if="contact" class=" md:absolute w-full md:mt-8 origin-top-right rounded-md md:shadow-lg md:w-48 z-50">
+      
+          <div class=" md:bg-white rounded-b-md md:shadow dark-mode:bg-gray-800">
+            <a class="block px-4 py-2 mt-2 hover:bg-primary hover:text-white md:text-sm font-semibold  md:mt-0 " href="#">Our Team</a>
+            <a class="block px-4 py-2 mt-2 hover:bg-primary hover:text-white md:text-sm font-semibold  md:mt-0 " href="#">Contact</a>
           </div>
         </div>
+
+      </Transition>
       </div>
-      <a class="px-1 py-2 mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Login</a>
-      <a class="px-1 py-2 mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Register</a>
-          
+      <a class="px-1 py-2 lg:text-sm mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Login</a>
+      <a class="px-1 py-2 lg:text-sm mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Register</a>
     </nav>
   </div>
 </div>
@@ -191,8 +199,8 @@ defineProps({
 		</div>
 	</section>
 
-  <div class="bg-white py-20">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <div class="bg-white container  py-20">
+  <div class="mx-auto  max-w-7xl px-6 lg:px-8">
     <div class="sm:text-center">
       <h2 class="text-lg font-semibold leading-8 text-primary">Transactions</h2>
       <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">A better way to send money</p>
@@ -421,7 +429,7 @@ defineProps({
         </div>
     </div>
 
-    <div class="bg-black w-full fixed bottom-0">
+    <div class="bg-black w-full  ">
       <div class="flex  justify-center h-10">
           <span class=" text-white text-sm flex items-center">@ 2022 NJ Real Estate School  </span>
          </div>
@@ -448,6 +456,8 @@ defineProps({
     background-size: contain;
 }
 
+@media screen and (min-width: 768px) {
+  
 nav > a:after {
   display:block;
   content: '';
@@ -459,6 +469,9 @@ nav > a:after {
 nav > a:hover:after {
  transform: scaleX(0.7);
 }
+
+}
+
 
 
 /* .swiper {
@@ -487,6 +500,15 @@ nav > a:hover:after {
 
 }
 
+.slide-enter-from { transform: translateY(-20%) }
+.slide-enter-to { transform: translateY(0) }
+
+.slide-leave { transform: translateY(0) }
+.slide-leave-to { transform: translateY(-20%) }
+
+.slide-enter-active,
+.slide-leave-active { transition: all 200ms ease-in }
+
 .swiper-container {
     position:relative;
     width: 90vw;
@@ -499,6 +521,8 @@ nav > a:hover:after {
   height: 100%;
   object-fit: cover;
 }
+
+
 
 .swiper-button-prev{
     color:#b40101;

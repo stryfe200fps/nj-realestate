@@ -32,7 +32,7 @@ module.exports = {
         md: '728px',
         lg: '984px',
         xl: '1000px',
-        '2xl': '1200px',
+        '2xl': '900px',
       },
     },
 
