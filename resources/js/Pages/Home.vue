@@ -1,19 +1,12 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
 
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation, EffectFade } from "swiper";
+import Header from '@/Components/partials/Header.vue'
+import Footer from '@/Components/partials/Footer.vue'
+import ProductCard from '@/Components/partials/ProductCard.vue'
+import Button from '@/Components/partials/Button.vue'
+import Slider from '@/Components/partials/Slider.vue'
 
-import "swiper/css/effect-fade";
-import "swiper/css";
-import "swiper/css/navigation";
-
-import { ref  } from 'vue';
-
-const modules = [Navigation, EffectFade]
-
-const active = ref(false);
-const contact = ref(false);
 
 
 defineProps({
@@ -27,81 +20,12 @@ defineProps({
 <template>
     <Head title="Welcome" />
 
- <div class="h-16 bg-primary">
-  </div>
- 
-<div   class="w-full  bg-nav dark-mode:text-gray-200  dark-mode:bg-gray-800 shadow-md z-50">
-  <div class="flex flex-col py-4 container mx-auto  lg:items-center lg:justify-between lg:flex-row ">
-    <div class="p-4 flex flex-row items-center justify-between">
-      <a href="#"> <img src="https://njrealestateschoolonline.com/images/logo.png" class="w-52" />
-    </a>
+    <Header/>
 
-      <button class="lg:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="active = !active">
-        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-          <path v-if="!active" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-          <path v-if="active" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-        </svg>
-      </button>
+
+    <div class="h-auto w-full z-40">
+      <Slider/>
     </div>
-    <nav  :class="active ? 'flex' : 'hidden'"  class=" flex-col flex-grow pb-4 md:pb-0  lg:flex lg:justify-end lg:flex-row uppercase">
-      <a class="px-1 py-2 mt-2 lg:text-sm text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4   focus:outline-none focus:shadow-outline" href="#">Home</a>
-      <a class="px-1 py-2 mt-2 lg:text-sm text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Courses</a>
-      <a class="px-1 py-2 mt-2 lg:text-sm text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Schedule</a>
-      <a class="px-1 py-2 mt-2  lg:text-sm text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">School Policies</a>
-      <div   @click="contact = !contact"  class="relative " >
-        <button  class=" lg:text-sm text-md font-medium flex flex-row text-primary hover:text-black items-center w-full px-1 py-2 mt-2 text-left  rounded-lg  md:w-auto md:inline md:mt-0 md:ml-4">
-          <span class="uppercase">Contact</span>
-          <svg fill="currentColor" viewBox="0 0 20 20" :class="contact ? 'rotate-180' : 'rotate-0'" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-        </button>
-      <Transition name="slide"
-      >
-        <div v-if="contact" class=" md:absolute w-full md:mt-8 origin-top-right rounded-md md:shadow-lg md:w-48 z-50">
-      
-          <div class=" md:bg-white rounded-b-md md:shadow dark-mode:bg-gray-800">
-            <a class="block px-4 py-2 mt-2 hover:bg-primary hover:text-white md:text-sm font-semibold  md:mt-0 " href="#">Our Team</a>
-            <a class="block px-4 py-2 mt-2 hover:bg-primary hover:text-white md:text-sm font-semibold  md:mt-0 " href="#">Contact</a>
-          </div>
-        </div>
-
-      </Transition>
-      </div>
-      <a class="px-1 py-2 lg:text-sm mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Login</a>
-      <a class="px-1 py-2 lg:text-sm mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">Register</a>
-    </nav>
-  </div>
-</div>
-
-
-<div class="sm:container sm:mt-10 z-40">
-
-    <swiper  :navigation="true" :modules="modules" :effect="'fade'" class="mySwiper">
-    <swiper-slide >
-
-      <div class=" h-96 w-full bg-image" style="background:url(https://njrealestateschoolonline.com/images/slider/slider-1.jpg); background-repeat: no-repeat; background-size: cover; " > 
-      </div>
-        <div class="absolute">
-        <h2 class="text-white text-2xl md:text-4xl font-extrabold">Call/Text (973) 314-4436 for details!</h2>
-        <div class="flex gap-4 justify-center mt-8">  
-        <a href="#" class="text-white px-6 py-2 text-xs md:text-lg bg-primary border-primary hover:bg-primary-hover rounded-md">Course Schedule <i class="fas fa-chevron-right"></i> </a>
-        <a href="#" class="text-black px-6 py-2 text-xs md:text-lg bg-white border-white hover:bg-gray-300 rounded-md">Course Detail <i class="fas fa-chevron-right"></i> </a>
-        </div>
-        </div>
-    </swiper-slide>
-
-    <swiper-slide >
-      <div class=" h-96 w-full bg-image" style="background:url(https://njrealestateschoolonline.com/images/slider/slider-2.jpg); background-repeat: no-repeat; background-size: cover; " > 
-      </div>
-        <div class="absolute">
-        <h2 class="text-white text-2xl md:text-4xl font-extrabold">New Salesperson Course Nov. 7th!</h2>
-        <div class="flex gap-4 justify-center mt-8">  
-        <a href="#" class="text-white px-6 py-2 text-xs md:text-lg bg-primary border-primary hover:bg-primary-hover rounded-md">Course Schedule <i class="fas fa-chevron-right"></i> </a>
-        <a href="#" class="text-black px-6 py-2 text-xs md:text-lg bg-white border-white hover:bg-gray-300 rounded-md">Course Detail <i class="fas fa-chevron-right"></i> </a>
-        </div>
-        </div>
-    </swiper-slide>
-  </swiper>
-
-</div>
 
 
 <section class="bg-gray-100 sm:my-8">
@@ -271,85 +195,16 @@ defineProps({
       <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl flex justify-center my-8">Our Course Products</p>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-3 gap-y-8 sm:gap-x-20  mx-auto place-items-center">
 
-    <div class="p-4  hover:scale-110  transition ease-in delay-150 bg-gray-200 rounded-md shadow-lg">
-      <div class="h-60 w-80 lg:w-72 ">
-      <img src="https://njrealestateschoolonline.com/images/course-01-opt.jpg" class="object-cover" />
-      </div>
-      <div class="flex justify-between items-center my-2">
-        <span class="text-xs"> <i class="far fa-clock"></i>  75 Hours</span>
-        <div class="flex space-x-1 text-sm text-yellow-500">
-        <i  class="fa fa-star"></i>
-        <i  class="fa fa-star"></i>
-        <i  class="fa fa-star"></i>
-        <i  class="fa fa-star"></i>
-        <i  class="fa fa-star"></i>
-        </div>
-      </div>
-      <h3 class="block text-lg text-gray-700 font-bold">Online Salesperson Course</h3>
-      <span class="block my-2 text-primary tracking-tighter font-bold">$350</span>
-      <div class="flex gap-4 my-2">
-        <a href="#" class="text-white px-6 py-2 text-md bg-primary border-primary hover:bg-primary-hover rounded-md">Book now</a>
-        <a href="#" class="text-primary px-4 py-2 text-md bg-transparent border-primary border hover:bg-primary-hover hover:text-white rounded-md">Detail</a>
-      </div>
-    </div>
-
-
-    <div>
-
-    <div class="p-4  hover:scale-110  transition ease-in delay-150 bg-gray-200 rounded-md shadow-lg">
-      <div class="h-60 w-80 lg:w-72">
-      <img src="https://njrealestateschoolonline.com/images/course-01-opt.jpg" class="object-cover" />
-      </div>
-      <div class="flex justify-between items-center my-2">
-        <span class="text-xs"> <i class="far fa-clock"></i>  75 Hours</span>
-        <div class="flex space-x-1 text-sm text-yellow-500">
-        <i  class="fa fa-star"></i>
-        <i  class="fa fa-star"></i>
-        <i  class="fa fa-star"></i>
-        <i  class="fa fa-star"></i>
-        <i  class="fa fa-star"></i>
-        </div>
-      </div>
-      <h3 class="block text-lg text-gray-700 font-bold">Online Salesperson Course</h3>
-      <span class="block my-2 text-primary tracking-tighter font-bold">$350</span>
-      <div class="flex gap-4 my-2">
-        <a href="#" class="text-white px-6 py-2 text-md bg-primary border-primary hover:bg-primary-hover rounded-md">Book now</a>
-        <a href="#" class="text-primary px-4 py-2 text-md bg-transparent border-primary border hover:bg-primary-hover hover:text-white rounded-md">Detail </a>
-      </div>
-    </div>
-    </div>
-
-    <div>
-
-    <div class="p-4  hover:scale-110  transition ease-in delay-150 bg-gray-200 rounded-md shadow-lg">
-      <div class="h-60 w-80 lg:w-72">
-      <img src="https://njrealestateschoolonline.com/images/course-01-opt.jpg" class="object-cover" />
-      </div>
-      <div class="flex justify-between items-center my-2">
-        <span class="text-xs"> <i class="far fa-clock"></i>  75 Hours</span>
-        <div class="flex space-x-1 text-sm text-yellow-500">
-        <i  class="fa fa-star"></i>
-        <i  class="fa fa-star"></i>
-        <i  class="fa fa-star"></i>
-        <i  class="fa fa-star"></i>
-        <i  class="fa fa-star"></i>
-        </div>
-      </div>
-      <h3 class="block text-lg text-gray-700 font-bold">Online Salesperson Course</h3>
-      <span class="block my-2 text-primary tracking-tighter font-bold">$350</span>
-      <div class="flex gap-4 my-2">
-        <a href="#" class="text-white px-6 py-2 text-md bg-primary border-primary hover:bg-primary-hover rounded-md">Book now</a>
-        <a href="#" class="text-primary px-4 py-2 text-md bg-transparent border-primary border hover:bg-primary-hover hover:text-white rounded-md">Detail </a>
-      </div>
-    </div>
-    </div>
+    <product-card/>
+    <product-card/>
+    <product-card/>
 
   </div>
 
 
     <div class="flex justify-center my-8">
 
-        <button  class="px-6 py-2 mt-2 rounded-md bg-gray-400 text-xl text-white">View All Courses</button>
+        <Button color="dark" label="View All Courses"/>
 </div>
 
 
@@ -358,82 +213,8 @@ defineProps({
 
 
 
-
-<br>
-    <div class="bg-primary md:h-80 h-auto  ">
-        <div class="grid sm:grid-cols-2 grid-cols-1 container mx-auto place-items-center items-start sm:pb-10 pb-28">
-
-            <div class="flex flex-col my-8 space-y-4 md:space-y-8"> 
-              <h2 class="text-xl md:text-4xl text-white">Request A Callback</h2>
-              <b class="text-white text-sm">Our office number is (973) 314-4436 (voice & text).</b>
-              <p class="text-white text-sm">We can be reached 24/7 via text message to our office number or by filling out the adjacent form. We will call you back within the same working day.</p>
-            </div>
-
-            <div class="flex w-full flex-col sm:my-8 space-y-2 md:space-y-8"> 
-              <p class="text-white text-sm">Please contact us with any questions you might have.</p>
-
-                <form> 
-              <div class="grid  grid-cols-2 gap-2 ">
-                <input class=" rounded-md h-8 md:h-10 text-sm md:text-md " placeholder="First name" type ="text"/>
-                <input class="rounded-md h-8 md:h-10 text-sm md:text-md" placeholder="Last name" type ="text"/>
-                <input class="rounded-md h-8 md:h-10 text-sm md:text-md" placeholder="Phone" type ="text"/>
-                <input class="rounded-md h-8 md:h-10 text-sm md:text-md" placeholder="Email Address" type ="email"/>
-              </div>
-
-              <button  class="w-full py-2 mt-2 h-8 md:h-10 rounded-md text-sm md:text-md  bg-red-100">Submit</button>
-
-                </form>
-            </div>
-        </div>
-
-    </div>
-
-
-    <div  class="bg-blue-300 py-4 footer-bg h-auto w-full">
-        <div class="grid 	grid-cols-2 sm:grid-cols-3 container mx-auto place-items-center items-start	">
-
-            <div class="flex col-span-2 sm:col-span-1 flex-col my-8 space-y-8"> 
-      <a href="#"> <img src="https://njrealestateschoolonline.com/images/logo.png" class="w-80" /> </a>
-              <p class="text-footer text-sm">EZ Real Estate CE, LLC dba "NJ Real Estate School" is licensed by the New Jersey Real Estate Commission to offer the NJ 75 hour real estate salesperson's pre-license course, the 150 hour real estate broker's pre-license course and real estate continuing education.
-          </p>
-            </div>
-
-            <div class="flex w-full sm:w-auto  flex-col my-4 space-y-4 sm:pb-0 pb-10"> 
-              <h2 class="text-2xl sm:text-3xl font-medium text-footer">Company</h2>
-              <div class="flex flex-col text-sm space-y-1">
-                <a class="hover:text-primary" href="#"><i class="fas fa-caret-right"> </i>  Home</a>
-                <a class="hover:text-primary" href="#"> <i class="fas fa-caret-right"> </i> Courses</a>
-                <a class="hover:text-primary"  href="#"> <i class="fas fa-caret-right"> </i> Schedule</a>
-                <a class="hover:text-primary"  href="#"> <i class="fas fa-caret-right"> </i> Schedule</a>
-                <a class="hover:text-primary"  href="#"> <i class="fas fa-caret-right"> </i> Schedule</a>
-                <a class="hover:text-primary"  href="#"> <i class="fas fa-caret-right"> </i> Schedule</a>
-              </div>
-            </div>
-
-            <div class="flex  w-full sm:w-auto flex-col my-4 space-y-4 sm:pb-0 pb-10"> 
-              <h2 class="text-2xl sm:text-3xl font-medium text-footer">Contact us</h2>
-              <div class="flex flex-col text-sm space-y-1">
-                <span> <i class="fas fa-caret-right"> </i>  <i class="fas fa-home text-primary mr-2"></i>  188 Elm Street, Westfield, NJ 07090</span>
-                <span> <i class="fas fa-caret-right"> </i>  <i class="fas fa-phone text-primary mr-2"></i>  (973) 314-4436</span>
-                <a  href="#"> <i class="fas fa-caret-right"> </i>  <i class="fas fa-envelope text-primary mr-2"></i>  Contact us</a>
-                <span > <i class="fas fa-caret-right"> </i>  <i class="fas fa-clock text-primary mr-2"></i>  Mon-Fri 9:00 am - 5:00 pm</span>
-              </div>
-
-              <div class="flex space-x-2  h-10 ">
-                <a href="#" class="bg-gray-600 hover:bg-primary w-10 h-10 items-center flex justify-center rounded-full text-white"> <i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="bg-gray-600 hover:bg-primary w-10 h-10 items-center flex justify-center rounded-full text-white"> <i class="fab fa-twitter"></i></a>
-                <a href="#" class="bg-gray-600 hover:bg-primary w-10 h-10 items-center flex justify-center rounded-full text-white"><i class="fab fa-linkedin"></i></a>
-              </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="bg-black w-full  ">
-      <div class="flex  justify-center h-10">
-          <span class=" text-white text-sm flex items-center">@ 2022 NJ Real Estate School  </span>
-         </div>
-    </div>
+<Footer/>
+    
 </template>
 
 <style>
@@ -456,21 +237,6 @@ defineProps({
     background-size: contain;
 }
 
-@media screen and (min-width: 768px) {
-  
-nav > a:after {
-  display:block;
-  content: '';
-  border-bottom: solid 3px #b40101;  
-  border-bottom-width: 3px;
-  transform: scaleX(0);  
-  transition: transform 200ms ease-in ;
-}
-nav > a:hover:after {
- transform: scaleX(0.7);
-}
-
-}
 
 
 
@@ -500,14 +266,6 @@ nav > a:hover:after {
 
 }
 
-.slide-enter-from { transform: translateY(-20%) }
-.slide-enter-to { transform: translateY(0) }
-
-.slide-leave { transform: translateY(0) }
-.slide-leave-to { transform: translateY(-20%) }
-
-.slide-enter-active,
-.slide-leave-active { transition: all 200ms ease-in }
 
 .swiper-container {
     position:relative;
@@ -537,22 +295,7 @@ nav > a:hover:after {
     --swiper-navigation-size: 30px;
 }
 
-.bg-image {
-  position:relative;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-.bg-image::before {
-    content:"";
-    position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    display: block;
-    background-color: rgba(0,0,0,.55);
-}
+
 
 
 
