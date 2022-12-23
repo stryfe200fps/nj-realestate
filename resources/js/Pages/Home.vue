@@ -32,7 +32,7 @@ defineProps({
 		<div class="container">
       <div class="py-8"> 
       <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl flex justify-center my-8">Timeline</p>
-			<div class="space-y-8">
+			<div class="space-y-8 flex flex-col items-center">
 				<div>
 					<h3 class="mb-3 text-lg font-bold md:text-xl">2021</h3>
 					<ul class="space-y-4">

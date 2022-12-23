@@ -38,12 +38,20 @@
 
       </Transition>
       </div>
-      <a class="md:hidden block px-1 py-2 lg:text-sm mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#"> <i class="fas fa-sign-in"></i> Login</a>
-      <a class="md:hidden block px-1 py-2 lg:text-sm mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">  <i class="fas fa-edit"></i> Register</a>
+
+      <a class="sm:hidden block px-1 py-2 lg:text-sm mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#"> 
+                <div class="bg-primary inline-flex w-7 h-7 text-white items-center  justify-center rounded-full "> <i class="fas fa-sign-in-alt"></i></div>  Login</a>
+
+      <a class="sm:hidden block px-1 py-2 lg:text-sm mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#"> 
+                <div class="bg-primary inline-flex w-7 h-7 text-white items-center  justify-center rounded-full "> <i class="fas fa-edit"></i></div>  Register</a>
     </nav>
-    <div class="uppercase items-center  auth flex"> 
-      <a class="md:block hidden px-1 py-2 lg:text-sm mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#"> <i class="fas fa-sign-in"></i> Login</a>
-      <a class="md:block hidden px-1 py-2 lg:text-sm mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#">  <i class="fas fa-edit"></i> Register</a>
+    <div class="uppercase items-center   flex"> 
+      <a class="sm:block hidden px-1 py-2 lg:text-sm mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#"> 
+                <div class="bg-primary inline-flex w-7 h-7 text-white items-center  justify-center rounded-full "> <i class="fas fa-sign-in-alt"></i></div>  Login</a>
+
+      <a class="sm:block hidden px-1 py-2 lg:text-sm mt-2 text-md font-medium text-primary  hover:text-black md:mt-0 md:ml-4  focus:outline-none focus:shadow-outline" href="#"> 
+                <div class="bg-primary inline-flex w-7 h-7 text-white items-center  justify-center rounded-full "> <i class="fas fa-edit"></i></div>  Register</a>
+
     </div>
   </div>
 </div>
